@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
 import catalogRoutes from './routes/catalog.routes.js';
+import catalogV2Routes from './routes/catalogV2.routes.js';
 import verifyApiKey from './middlewares/verifyApiKey.js';
 
 const app = express();
@@ -19,6 +20,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/catalog', verifyApiKey, catalogRoutes);
+app.use('/api/v2/catalog', verifyApiKey, catalogV2Routes);
 
 app.listen(3000, () => {
   console.log('Server is running on port 3000');

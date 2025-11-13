@@ -1,5 +1,4 @@
-// TODO - Move API key to environment variable
-export const API_KEY = process.env.API_KEY
+const API_KEY = process.env.API_KEY
 
 export default function verifyApiKey(req, res, next) {
     if (!req.headers.authorization) {
